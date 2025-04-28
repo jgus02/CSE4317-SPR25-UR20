@@ -13,7 +13,7 @@ This subsystem of the UR20 arm is technically an interface within the PLC, but a
 The assumption being made is that the UR20 arm is going to exclusively be a tool of the PLC, and thus will only interface with the PLC. The movement interface may even be built into the PLC for this robot, as it seems to be with some other UR cobots, but as of right now it is being assumed that a control system will have to be programmed for it on the PLC.
 
 \subsubsection{Responsibilities}
-The responsibility of the movement subsystem is to translate the box location, current arm location, and current desired speed into a coherent set of movements for the UR20 arm. These factors will be combined to create a set of movements and movement speed that will move the arm to the desired location. This must account for the position of the QR scanner when deciding where to place the arm.
+The responsibility of the movement subsystem is to translate the box location, current arm location, and current desired speed into a coherent set of movements for the UR20 arm. These factors will be combined to create a set of movements and movement speed that will move the arm to the desired location. This must account for the position of the conveyor belt when deciding where to place the arm.
 
 \subsubsection{Movement Subsystem Interfaces}
 Each of the inputs and outputs for the subsystem are defined here.

@@ -7,13 +7,13 @@ The UR20 has a system to practically create a single interface between the robot
 \end{figure}
 
 \subsection{Input function}
-The input function would be the readings of the environment knowing the positions of the pallet and reading the incoming box QR code 
+The input function would be the readings of the environment knowing the positions of the pallet and whehere there is a box to pickup based on the photo eye.
 
 \subsubsection{Assumptions}
-Assumptions for the input function is that the boxes would have a visible QR code for sensor to read thus orientation of the box to be predefined. 
+Assumptions for the input function is that the orientation of the box is uniform such that it will be picked up the same way. 
 
 \subsubsection{Responsibilities}
-The responsibitilies of the input fuction is soley to gather data that the PLC placement algorithm will use to preform its next action. such as the QR of the next box, the current state of the pallet, the location of any other nearby objects or people for safety concerns.
+The responsibitilies of the input fuction is soley to gather data that the PLC placement algorithm will use to preform its next action. Such as the current state of the pallet, the location of any other nearby objects or people for safety concerns.
 
 \subsubsection{Subsystem Interfaces}
 
@@ -23,8 +23,8 @@ The responsibitilies of the input fuction is soley to gather data that the PLC p
     \begin{tabular}{ | p{1cm} | p{6cm} | p{3cm} | p{3cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#01 & movement readings  & \pbox{3cm}{ destination\\position \\ speeds \\ safety sensor\\griper power} & \pbox{3cm}{formated data for PLC algorithm}  \\ \hline
-    \#02 & box detection   & \pbox{3cm}{ QR reading\\position \\ speeds \\ safety sensor\\ griper power} & \pbox{3cm}{formated data for box offset algorithm }  \\ \hline
+    \#01 & movement readings  & \pbox{3cm}{ destination\\position \\ speeds \\ safety sensor\\gripper power} & \pbox{3cm}{formated data for PLC algorithm}  \\ \hline
+    \#02 & box detection   & \pbox{3cm}{ Photo Eye State\\position \\ speeds \\ safety sensor\\ gripper power} & \pbox{3cm}{formated data for box offset algorithm }  \\ \hline
     
     \end{tabular}
 \end{center}
@@ -34,7 +34,7 @@ The responsibitilies of the input fuction is soley to gather data that the PLC p
 The box offset algorithm will be used to scan and determine the placement of the box 
 
 \subsubsection{Assumptions}
-QR codes will be used as a predefined locations for each bot and expected specfic order
+The boxes have uniform size and will fit on the pallet with a pre-defined pattern.
 
 \subsubsection{Responsibilities}
 The responsibitilies of the placement function will be used to determine location of the box in the x,y,z dimentional plane and send it to the placement algorithm
@@ -48,7 +48,7 @@ The responsibitilies of the placement function will be used to determine locatio
     \begin{tabular}{ | p{1cm} | p{6cm} | p{3cm} | p{3cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#03 & movement  & \pbox{3cm}{QR reading\\position \\ speeds \\ safety sensor\\ griper power} & \pbox{3cm}{formated data for PLC algorithm }  \\ \hline
+    \#03 & movement  & \pbox{3cm}{Photo Eye State\\position \\ speeds \\ safety sensor\\ gripper power} & \pbox{3cm}{formated data for PLC algorithm }  \\ \hline
     
     \end{tabular}
 \end{center}
@@ -72,7 +72,7 @@ The responsibitilies of the placement function will be prefom send the appropria
     \begin{tabular}{ | p{1cm} | p{6cm} | p{3cm} | p{3cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#04 & movement  & \pbox{3cm}{QR reading\\destination\\ position \\ speeds \\ safety reading} & \pbox{3cm}{adjusted motor spreeds}  \\ \hline
+    \#04 & movement  & \pbox{3cm}{Photo Eye State\\destination\\ position \\ speeds \\ safety reading} & \pbox{3cm}{adjusted motor spreeds}  \\ \hline
     \#05 & gripper power  & \pbox{3cm}{destination\\postion} & \pbox{3cm}{ON/OFF}  \\ \hline
     
     \end{tabular}
