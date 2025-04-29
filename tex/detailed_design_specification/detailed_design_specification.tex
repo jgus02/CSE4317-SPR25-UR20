@@ -34,7 +34,7 @@
 \newcommand{\docname}{Detailed Design Specification}
 \newcommand{\department}{Department of Computer Science \& Engineering}
 \newcommand{\university}{The University of Texas at Arlington}
-\newcommand{\authors}{Luis Contreras \\ Joushua Dominguez \\ Christopher Gonzalez \\ Jasper Gustafson}
+\newcommand{\authors}{Luis Contreras \\ Joshua Dominguez \\ Christopher Gonzalez \\ Jasper Gustafson}
 
 %%% Headers and footers
 \usepackage{fancyhdr}
@@ -70,7 +70,7 @@
 \vspace{0.5 in}
 \begin{figure}[h!]
 	\centering
-   	\includegraphics[width=0.60\textwidth]{images/test_image}
+   	\includegraphics[width=0.60\textwidth]{images/LJCJ.jpg}
 \end{figure}
 \vspace{0.5 in}
 {\centering \huge \color{accentcolor} \sc \textbf{\teamname \\ \productname} \par}
@@ -85,11 +85,9 @@
 
 %%% Revision History
 \begin{versionhistory}
-  	\vhEntry{0.1}{1.01.2016}{GH}{document creation}
-  	\vhEntry{0.2}{1.05.2016}{AT|GH}{complete draft}
-  	\vhEntry{0.3}{1.12.2016}{AT|GH}{release candidate 1}
-  	\vhEntry{1.0}{1.20.2016}{AT|GH|CB}{official release}
-  	\vhEntry{1.1}{1.31.2016}{AL}{added design review requests}
+  	\vhEntry{0.1}{2.02.2025}{JG, JD, LC, CG}{Document creation}
+        \vhEntry{0.2}{2.28.2025}{JG, JD, LC, CG}{Complete draft}
+
 \end{versionhistory}
 \newpage
 
@@ -109,12 +107,24 @@
 \section{System Overview}
 \input{tex/system_overview.tex}
 \newpage
-%\section{Subsystem Definitions \& Data Flow}
-%\input{tex/data_flow.tex}
+\section{UR 20 Robot Arm Layer Subsystems}
+\input{tex/arm_subsystems.tex}
 \newpage
-\section{X Layer Subsystems}
-\input{tex/x_layer_subsystems.tex}
+\section{Safety Sensor Layer Subsystems}
+\input{tex/safety_sensor_subsystems.tex}
 \newpage
+\newpage
+\newpage
+\section{Conveyor Belt Layer Subsystems}
+\input{tex/conveyor_subsystems.tex}
+\newpage
+\section{PLC Layer Subsystems}
+\input{tex/plc_subsystems.tex}
+\newpage
+
+
+
+
 
 \section{Appendix A}
 \input{tex/appendix.tex}
