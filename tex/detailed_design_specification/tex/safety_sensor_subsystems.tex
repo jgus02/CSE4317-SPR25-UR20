@@ -9,6 +9,7 @@ Python/URScript
 OpenCV
 TensorFlow Lite
 RPI.GPIO
+Python \& URX Python library
 
 \begin{figure}[h!]
 	\centering
@@ -17,11 +18,10 @@ RPI.GPIO
 \end{figure}
 
 \subsection{Proximity Sensor Subsystem}
-Detects the distance of a nearby person, if there is any person nearby.
+Detects whether a person has entered the operating area of the UR20. 
 
 \subsubsection{Proximity Sensor Hardware}
-An IR proximity sensor mounted at the base of the robot arm, opposite the conveyor belt, detects the position and distance of any living creatures.
-
+An IR proximity sensor mounted at the base of the robot arm, opposite the conveyor belt, detects the position and distance of any objects.
 
 \subsection{Computer Vision Subsystem}
 The computer vision system detectts if a human enters the operational area of the UR20 using RaspberryPi with a camera module and machine learning interface.
@@ -33,6 +33,13 @@ Output: Classification confidence score indicating the probability of a human in
 Captured frames are passed to a TensorFlow Lite model to detect humans in the frame. If the model outputs a score higher than a select threshold (0.63 in our case found through fine tuning), additional bounding box checking ensures that the detected human is within a ctritical section of the camera's view. 
 If more than one person is in the dead zone, a GPIO pin is set to high, activating an emergency stop condition on the UR20.
 
+\subsubsection{Computer Vision Hardware}
+This diagram is of the circuit that sends the halt signal from the Raspberry Pi to the UR20. When the input from the Pi is low, the output of the circuit is 24V, meaning the logic is inverted.
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.60\textwidth]{images/piCircuit.png}
+ \caption{Pi to Control Box wiring}
+\end{figure}
 
 \subsection{Speed Control Subsystem}
 Determines the safest operational speed to perform at.

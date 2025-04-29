@@ -1,10 +1,7 @@
 The conveyor belt layer has two tasks: feed a consistent stream of boxes to the arm, and comply with safety standards. This layer has two subsystems: The ON/OFF controller, which receives signals from the PLC to start or stop the conveyor belt, and the 'Box Ready' Photo Eyes signaling system, which uses photo eyes to detect when another box is ready to be picked up.
 
 \subsection{Conveyor Belt Hardware}
-A conveyor belt provided by the Senior Design labs.
-
-\subsubsection{Conveyor Belt Programming Languages}
-Python/URScript
+A conveyor belt provided by the Senior Design labs. 
 
 \begin{figure}[h!]
 \centering
@@ -12,14 +9,11 @@ Python/URScript
  \caption{Conveyor belt diagram}
 \end{figure}
 
-\subsubsection{Conveyor Belt Software Dependencies}
-URX Python library
-
 \subsection{Power Controller Subsystem}
-The power controller hardware subsystem in the conveyor belt layer is responsible for controlling the state of the conveyor belt. The subsystem receives a command from the PLC to switch the belt "ON" or "OFF" when operations begin or end, OR when the safety system indicates an emergency stop.
+The power controller hardware subsystem in the conveyor belt layer is responsible for controlling the state of the conveyor belt. The subsystem receives a command from the PLC to switch the belt "ON" or "OFF" when a box moves from or into the correct position, OR when the safety system indicates an emergency stop.
 
 \subsubsection{Power Controller Hardware}
-A power supply toggle for emergency shut-off, wired to the robot arm to be controlled by the PLA.
+A power supply toggle for shut-off, wired to the robot arm to be controlled by the PLA.
 
 \subsubsection{Power Controller Data Structures}
 This is a binary on/off toggle of the conveyor belt, so a single binary bit should be all that is necessary.
