@@ -17,7 +17,7 @@ The UR20 should have collision detection and should stop at impact
 To signal the PLC the presence of a person near the robot using a computer vision algorithm
 
 \subsubsection{Subsystem Interfaces}
-
+Pin 17 on the Pi is connected to CI17 on the Control Box, sending a halt signal when a person is detected.
 
 \begin {table}[H]
 \caption {Speed Controller Subsystem Interface} 
@@ -31,9 +31,9 @@ To signal the PLC the presence of a person near the robot using a computer visio
 \end{table}
 
 \subsection{Computer vision algorithm}
-A computer vision algorithm to scan for the presence of a person being near the UR20 robot
+A computer vision algorithm to scan for the presence of the shape of a person being near the UR20 robot
 \subsubsection{Assumptions}
-assume that the camera has a good point of view as to beable to see all around the robot 
+The camera will have a vantage point as to be able to see all around the robot 
 
 \subsubsection{Responsibilities}
 Inform controller of detected pressence near the UR20 
