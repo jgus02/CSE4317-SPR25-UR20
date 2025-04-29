@@ -6,7 +6,7 @@ The safety subsystem determines whether it is safe to continue operation (unsafe
 Python/URScript
 
 \subsubsection{Safety Sensor Software Dependencies}
-URX Python library
+Python \& URX Python library
 
 \begin{figure}[h!]
 	\centering
@@ -15,21 +15,26 @@ URX Python library
 \end{figure}
 
 \subsection{Proximity Sensor Subsystem}
-Detects the distance of a nearby person, if there is any person nearby.
+Detects whether a person has entered the operating area of the UR20. 
 
 \subsubsection{Proximity Sensor Hardware}
-An IR proximity sensor mounted at the base of the robot arm, opposite the conveyor belt, detects the position and distance of any living creatures.
-
+An IR proximity sensor mounted at the base of the robot arm, opposite the conveyor belt, detects the position and distance of any objects.
 
 \subsection{Computer Vision Subsystem}
 Detects if a person enters the operational area of the UR20 arm.
 
 \subsubsection{Computer Vision Data Structures}
-Receives data from the IR sensor. Details unknown due to recent change of plans.
+Receives data processed from the Raspberry Pi.
 
 \subsubsection{Computer Vision Data Processing}
-We are not filled in on how detailed the IR sensor's data is, but if distance is not given then the number of beams 'blocked' will be use to estimate the apparent size of a nearby person.
 
+\subsubsection{Computer Vision Hardware}
+This diagram is of the circuit that sends the halt signal from the Raspberry Pi to the UR20. When the input from the Pi is low, the output of the circuit is 24V, meaning the logic is inverted.
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.60\textwidth]{images/piCircuit.png}
+ \caption{Pi to Control Box wiring}
+\end{figure}
 
 \subsection{Speed Control Subsystem}
 Determines the safest operational speed to perform at.
