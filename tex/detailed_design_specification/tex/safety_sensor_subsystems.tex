@@ -6,7 +6,9 @@ The safety subsystem determines whether it is safe to continue operation (unsafe
 Python/URScript
 
 \subsubsection{Safety Sensor Software Dependencies}
-URX Python library
+OpenCV
+TensorFlow Lite
+RPI.GPIO
 
 \begin{figure}[h!]
 	\centering
@@ -22,13 +24,14 @@ An IR proximity sensor mounted at the base of the robot arm, opposite the convey
 
 
 \subsection{Computer Vision Subsystem}
-Detects if a person enters the operational area of the UR20 arm.
-
+The computer vision system detectts if a human enters the operational area of the UR20 using RaspberryPi with a camera module and machine learning interface.
 \subsubsection{Computer Vision Data Structures}
-Receives data from the IR sensor. Details unknown due to recent change of plans.
+Input:consists of Raw image frames captured by a Raspberry Pi camera module.
+Output: Classification confidence score indicating the probability of a human in dead zone of UR20 proximity sensor.
 
 \subsubsection{Computer Vision Data Processing}
-We are not filled in on how detailed the IR sensor's data is, but if distance is not given then the number of beams 'blocked' will be use to estimate the apparent size of a nearby person.
+Captured frames are passed to a TensorFlow Lite model to detect humans in the frame. If the model outputs a score higher than a select threshold (0.63 in our case found through fine tuning), additional bounding box checking ensures that the detected human is within a ctritical section of the camera's view. 
+If more than one person is in the dead zone, a GPIO pin is set to high, activating an emergency stop condition on the UR20.
 
 
 \subsection{Speed Control Subsystem}
