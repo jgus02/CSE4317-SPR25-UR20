@@ -1,16 +1,16 @@
 The UR20 in a palletizing application will require a conveyor belt, vacuum gripper attachment, and E-stop button. These components must be configured to work with the UR20 and each other for each new environment and job (with the exception of the E-stop button, which will always perform the same task in every situation).
 
-\subsection{E-stop button}
+\subsection{E-stop peripheral integration}
 \subsubsection{Description}
-The E-Stop will completely halt all operations of the UR20, conveyor belt, and vacuum generator. 
+Along with UR20 movement, the E-Stop will completely halt all operation of the conveyor belt and vacuum generator.  
 \subsubsection{Source}
 LJCJ Team Decision
 \subsubsection{Constraints}
-Some components may not take kindly to having the power cut unexpectedly. This should be considered before testing of the E-stop button begins.
+Some components may not take kindly to having the power cut unexpectedly. This should be considered during implementation.
 \subsubsection{Standards}
 N/A
 \subsubsection{Priority}
-Critical
+Low
 
 \subsection{Vacuum Gripper Attachment}
 \subsubsection{Description}
